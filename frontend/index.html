@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quicksort — Hoare Partition Visualizer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Algorithm walkthrough</p>
+    <h1>Quicksort with Hoare Partition</h1>
+    <p class="sub">Step through the algorithm — or play it — and watch the pointers and the array move together, debugger-style. The trace is computed by the backend.</p>
+  </header>
+
+  <div class="panel">
+    <div class="controls">
+      <div class="field">
+        <label class="field-label" for="arrInput">Array (comma-separated integers)</label>
+        <input type="text" id="arrInput" value="8, 2, 5, 9, 1, 6, 3" autocomplete="off">
+      </div>
+      <button id="randomizeBtn">Randomize</button>
+      <button id="visualizeBtn" class="primary">Visualize</button>
+    </div>
+    <div class="error" id="errorMsg"></div>
+    <div class="toolbar-row">
+      <button id="viewToggle">Bars view</button>
+    </div>
+
+    <div class="stage-outer"><div class="stage" id="stage"></div></div>
+
+    <div class="legend">
+      <span><span class="dot" style="background:var(--i-color)"></span> pointer i</span>
+      <span><span class="dot" style="background:var(--j-color)"></span> pointer j</span>
+      <span><span class="dot" style="background:var(--swap-color)"></span> just swapped</span>
+      <span><span class="dot" style="background:var(--pivot-color)"></span> active subarray [low..high]</span>
+      <span><span class="dot" style="background:var(--sorted-color)"></span> sorted</span>
+    </div>
+
+    <div class="varpanel" id="varPanel"></div>
+    <div class="explain" id="explainText"></div>
+
+    <div class="nav">
+      <div class="nav-row">
+        <button id="playBtn">▶ Play</button>
+        <select id="speedSelect">
+          <option value="1200">0.5×</option>
+          <option value="650" selected>1×</option>
+          <option value="300">2×</option>
+        </select>
+        <span class="step-count" id="stepCount"></span>
+      </div>
+      <div class="nav-row">
+        <button id="prevBtn">← Previous</button>
+        <input type="range" id="scrubber" min="0" max="0" value="0">
+        <button id="nextBtn">Next →</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
